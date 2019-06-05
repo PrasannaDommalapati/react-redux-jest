@@ -4,7 +4,7 @@ import * as types from '../constants/actions-types';
 // EXAMPLE: Load elements from service
 const actionLoadElements = () => (
   dispatch => (
-    axios.get('http://localhost:3000/elements')
+    axios.get('https://localhost:3000/elements')
       .then((response) => {
         dispatch({
           type: types.LOAD_FROM_SERVICE,

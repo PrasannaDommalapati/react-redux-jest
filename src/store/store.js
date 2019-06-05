@@ -1,13 +1,14 @@
 import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import ReduxThunk from 'redux-thunk';
 
-import reducers from '../reducers/reducers';
-import actionLoadElements from '../actions/elements-actions';
-import logger from './logger';
+import reducers from '../reducers/root-reducer';
 
 // Create store
-const store = createStore(reducers, applyMiddleware(thunk, logger));
+export const middleswares = [ReduxThunk];
+export const createStoreWithMiddlesware = applyMiddleware(...middleswares)(createStore);
 
-store.dispatch(actionLoadElements());
+const store = createStoreWithMiddlesware(reducers);
+
+// store.dispatch(actionLoadElements());
 
 export default store;
