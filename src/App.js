@@ -1,14 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import { Route, Switch } from 'react-router';
+import { Layout } from './components/Layout';
+import FolderTree from './components/FolderTree'
 
 class App extends React.Component {
-
+  static displayName = App.name;
   render() {
-    return (<h2 data-heading>Hello world</h2>);
+    return (
+      <Layout data-layout>
+        <Switch>
+          <Route exact path='/' component={FolderTree} />
+        </Switch>
+      </Layout>
+    );
   }
 }
 
-App.propTypes = {
-  email: PropTypes.string
-}
 export default App;
